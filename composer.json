@@ -1,0 +1,24 @@
+{
+    "name": "elms/eflashmessage",    
+    "type": "library",
+    "description": "PHP classes for creating Flash messages for Anax",
+		"keywords": ["flash", "message", "anax", "education"],
+    "homepage": "http://elmseld.se",
+		"license": "MIT",
+    "authors": [
+        {
+            "name": "Emily Elmseld",
+            "email": "emily.elmseld@gmail.com",
+            "role": "Developer/Student"
+        }
+    ],
+    "require": {
+        "php": ">=5.4"
+    },
+
+    "autoload": {
+        "psr-4": { 
+            "Elms\\": "src/"
+        }
+    }
+}
