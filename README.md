@@ -1,10 +1,10 @@
 # elms-eflashmessage
 
-Saves messages in session and pulls them from session to be displayed. Used in conjunction with Anax-MVC
+Spara meddelanden i session och visar dem vid anrop. Används i Anax-MVC
 
 ## Installation
 
-Install using Packagist or clone code from Github source:
+Installera med Packagist eller clona koden från Github source:
 ```
 "elms/eflashmessage": "dev-master"
 ```
@@ -43,8 +43,10 @@ $app->msg->alert('Alert flash meddelande!!');
 ```
 
 För att sedan skriva ut meddelenadet använd: 
+```
 $app->theme->setVariable('title', "Flash messages")->setVariable('main', $app->msg->outputMsgs());
 ```
 Och för att tömma sessionen på meddelanden använd;
+```
 $app->msg->clearMsg();
 ```
