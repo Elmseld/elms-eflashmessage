@@ -13,12 +13,11 @@
         }
     ],
     "require": {
-        "php": ">=5.4"
-    },
+        "php": ">=5.4",
+    		"anax/mvc": "dev-master"
+		},
 
     "autoload": {
-        "psr-4": { 
-            "Elms\\": "src/"
-        }
+        "psr-4": { "Elms\\": "src/" }
     }
 }
