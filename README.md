@@ -2,6 +2,8 @@
 
 Spara meddelanden i session och visar dem vid anrop. Används i Anax-MVC
 
+image:https://scrutinizer-ci.com/g/Elmseld/elms-eflashmessage/badges/quality-score.png?b=kmom06["Scrutinizer Code Quality", link="https://scrutinizer-ci.com/g/Elmseld/elms-eflashmessage/?branch=kmom06"]
+
 ## Installation
 
 Installera med Packagist eller clona koden från Github source:
