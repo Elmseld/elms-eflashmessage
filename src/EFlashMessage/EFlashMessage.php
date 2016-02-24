@@ -17,6 +17,8 @@ class EFlashMessage implements \Anax\DI\IInjectionAware {
 	/**
 	 * Initalerar kontrollen
 	 * 
+	 * @property session kollar om de finns några meddelande i session om inte sätter den meddelande i session
+	 *
 	 * @return void
 	 */
     public function initialize() {
@@ -30,6 +32,8 @@ class EFlashMessage implements \Anax\DI\IInjectionAware {
 	 *
 	 * @param $type string med meddelandes typ
 	 * @param $content string med meddelandet
+	 *
+	 * @property session lägger in ett meddelande i session
 	 *
 	 * @return void
 	 */
@@ -89,6 +93,9 @@ class EFlashMessage implements \Anax\DI\IInjectionAware {
 	
 	/**
 	 * Prints the messages in the session flasher
+	 *
+	 * @property session hämtar meddelande i session 
+	 *
 	 */
 	public function outputMsgs() {
 		$messages = $this->session->get('msg');
@@ -105,6 +112,9 @@ class EFlashMessage implements \Anax\DI\IInjectionAware {
 
 	/**
 	 * Clear messages in the session messenger
+	 *
+	 * @property session rensar ut meddelande ur session
+	 *
 	 */
 	public function clearMsg() {
 		$this->session->set('msg', []);
