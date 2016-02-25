@@ -9,17 +9,17 @@ namespace Elms\EFlashMessage;
  * Denna klass skapar en funktion för flash meddelande.
  */
 
-    class EFlashMessage {
+	class EFlashMessage {
 			
 				/**
 				 * Initalerar kontrollen
 				 * 
 				 * @return void
 				 */
-        public function __construct() {
-    			if(!isset($_SESSION['msg'])) {
-           	$_SESSION['msg'] = array();
-        	}
+		public function __construct() {
+				if(!isset($_SESSION['msg'])) {
+		   	$_SESSION['msg'] = array();
+			}
 				}
 			
 					/**
@@ -73,8 +73,8 @@ namespace Elms\EFlashMessage;
 
 
 				/**
-	 			 * Prints the messages in the session flasher
-	 			 */
+				 * Prints the messages in the session flasher
+				 */
 				public function outputMsgs(){
 						$messages = $_SESSION['msg'];
 						$output = null;
@@ -88,8 +88,8 @@ namespace Elms\EFlashMessage;
 				}
 
 				/**
-	 			 * Clear messages in the session messenger
-	       */
+				 * Clear messages in the session messenger
+				 */
 				public function clearMsg() {
 					$_SESSION['msg'] = null;
 				} 
