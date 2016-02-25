@@ -9,21 +9,18 @@ namespace Elms\EFlashMessage;
  * Denna klass skapar en funktion för flash meddelande.
  */
 
-class EFlashMessage implements \Anax\DI\IInjectionAware {
+class EFlashMessage {
 
-    use \Anax\DI\TInjectable;
 	
 	
 	/**
 	 * Initalerar kontrollen
 	 * 
-	 * @property session kollar om de finns några meddelande i session om inte sätter den meddelande i session
-	 *
 	 * @return void
 	 */
-    public function initialize() {
-        if (!$this->session->has('msg')) {
-            $this->session->set('msg', array());
+    public function __construct() {
+        if (!isset($_SESSION['msg'])) {
+            $_SSESSION['msg'] = array();
         }
     }
 
@@ -33,14 +30,12 @@ class EFlashMessage implements \Anax\DI\IInjectionAware {
 	 * @param $type string med meddelandes typ
 	 * @param $content string med meddelandet
 	 *
-	 * @property session lägger in ett meddelande i session
-	 *
 	 * @return void
 	 */
 	public function setMsg($type, $content) {
-		$temp = $this->session->get('msg');
-		$temp[] = array('type' => $type, 'content' => $content);
-		$this->session->set('msg', $temp);
+		
+		$message = array('type' => $type, 'content' => $content);
+		$_SESSION['msg'][] = $message;
 	}
 
 	/**
@@ -51,7 +46,8 @@ class EFlashMessage implements \Anax\DI\IInjectionAware {
 	 * @return void
 	 */
 	public function alert($message) {
-		$this->setMsg('alert', $message);
+		$alert = array('type' => 'alert', 'content' => $message);
+		$_SESSION['msg'][] = $alert;
 	}
 	
 		
@@ -63,7 +59,8 @@ class EFlashMessage implements \Anax\DI\IInjectionAware {
 	 * @return void
 	 */
 	public function success($message) {
-		$this->setMsg('success', $message);
+		$success = array('type' => 'success', 'content' => $message);
+		$_SESSION['msg'][] = $success;
 	}
 		
 	
@@ -75,8 +72,8 @@ class EFlashMessage implements \Anax\DI\IInjectionAware {
 	 * @return void
 	 */
 	public function error($message) {
-		$this->setMsg('error', $message);
-	}
+		$error = array('type' => 'error', 'content' => $message);
+		$_SESSION['msg'][] = $error;	}
 		
 	
 	/**
@@ -87,18 +84,16 @@ class EFlashMessage implements \Anax\DI\IInjectionAware {
 	 * @return void
 	 */
 	public function info($message) {
-		$this->setMsg('info', $message);
+		$info = array('type' => 'info', 'content' => $message);
+		$_SESSION['msg'][] = $info;
 	}
 
 	
 	/**
 	 * Prints the messages in the session flasher
-	 *
-	 * @property session hämtar meddelande i session 
-	 *
 	 */
 	public function outputMsgs() {
-		$messages = $this->session->get('msg');
+		$messages = $_SESSION['msg'];
 		$output = null;
 
 		if(isset($messages)) {
@@ -112,11 +107,8 @@ class EFlashMessage implements \Anax\DI\IInjectionAware {
 
 	/**
 	 * Clear messages in the session messenger
-	 *
-	 * @property session rensar ut meddelande ur session
-	 *
 	 */
 	public function clearMsg() {
-		$this->session->set('msg', []);
+		$_SESSION['msg'] = null;
 	}
 }

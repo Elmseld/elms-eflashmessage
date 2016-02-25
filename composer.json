@@ -13,8 +13,7 @@
         }
     ],
     "require": {
-        "php": ">=5.4",
-    		"mos/anax": "v2.5.0"
+        "php": ">=5.4"
 		},
 
     "autoload": {
