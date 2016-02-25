@@ -1,4 +1,4 @@
-# elms-eflashmessage
+# EFlashMessage
 
 Spara meddelanden i session och visar dem vid anrop. Används i Anax-MVC
 
@@ -17,7 +17,6 @@ Lägg till följande kod för att kunna anropa en FlashController i DI i ditt An
 ```
 $di->set('FlashController', function() use ($di) {
     $flashController = new \Anax\FlashMessages\FlashController();
-    $flashController->setDI($di);
     return $flashController;
 });
 ```

@@ -42,4 +42,11 @@ class CFlashMessageTest extends \PHPUnit_Framework_TestCase {
 				$exp = null;
 				$this->assertEquals($res, $exp, "Missmatch");
 	}
+	
+		public function testClearMsg() {
+		$test = new \Elms\EFlashMessage\EFlashMessage();
+				$res = $test->clearMsg();
+				$exp = null;
+				$this->assertEquals($res, $exp, "Missmatch");
+	}
 }
