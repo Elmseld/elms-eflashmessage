@@ -10,8 +10,7 @@ require __DIR__.'/config_with_app.php';
 
 // Inject the comment service into the app
 $di->setShared('msg', function() use ($di) {
-	$controller = new \Elms\EFlashMessage\EFlashMessage();
-	$controller->setDI($di);
+	$controller = new \Elms\EFlashMessage\EFlashMessage($di);
 	return $controller;
 });
 
