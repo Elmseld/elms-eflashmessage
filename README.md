@@ -3,6 +3,8 @@
 Spara meddelanden i session och visar dem vid anrop. Används i Anax-MVC
 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Elmseld/elms-eflashmessage/badges/quality-score.png?b=kmom06)](https://scrutinizer-ci.com/g/Elmseld/elms-eflashmessage/?branch=kmom06)
+[![Code Coverage](https://scrutinizer-ci.com/g/Elmseld/elms-eflashmessage/badges/coverage.png?b=kmom06)](https://scrutinizer-ci.com/g/Elmseld/elms-eflashmessage/?branch=kmom06)
+[![Build Status](https://travis-ci.org/Elmseld/elms-eflashmessage.svg?branch=master)](https://travis-ci.org/Elmseld/elms-eflashmessage)
 
 ## Installation
 
