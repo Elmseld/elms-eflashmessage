@@ -9,106 +9,88 @@ namespace Elms\EFlashMessage;
  * Denna klass skapar en funktion för flash meddelande.
  */
 
-class EFlashMessage {
+    class EFlashMessage {
+			
+				/**
+				 * Initalerar kontrollen
+				 * 
+				 * @return void
+				 */
+        public function __construct() {
+    			if(!isset($_SESSION['msg'])) {
+           	$_SESSION['msg'] = array();
+        	}
+				}
+			
+					/**
+					 * Lägg till ett alert meddelande
+					 *
+					 * @param $message string med meddelandets test
+					 *
+					 * @return void
+					 */
+				public function alert($content) {
+					$message = array('content' => $content, 'type' => 'alert');
+					$_SESSION['msg'][] = $message;
+				}
 
-	
-	
-	/**
-	 * Initalerar kontrollen
-	 * 
-	 * @return void
-	 */
-    public function __construct() {
-        if (!isset($_SESSION['msg'])) {
-            $_SSESSION['msg'] = array();
-        }
-    }
 
-	/**
-	 * Lägg till medelande till session arrayen
-	 *
-	 * @param $type string med meddelandes typ
-	 * @param $content string med meddelandet
-	 *
-	 * @return void
-	 */
-	public function setMsg($type, $content) {
-		
-		$message = array('type' => $type, 'content' => $content);
-		$_SESSION['msg'][] = $message;
-	}
+					/**
+					 * Lägg till ett sucess meddelande
+					 *
+					 * @param $message string med meddelandets test
+					 *
+					 * @return void
+					 */
+				public function success($content) {
+					$message = array('content' => $content, 'type' => 'success');
+					$_SESSION['msg'][] = $message;
+				}
 
-	/**
-	 * Lägg till ett alert meddelande
-	 *
-	 * @param $message string med meddelandets test
-	 *
-	 * @return void
-	 */
-	public function alert($message) {
-		$alert = array('type' => 'alert', 'content' => $message);
-		$_SESSION['msg'][] = $alert;
-	}
-	
-		
-	/**
-	 * Lägg till ett sucess meddelande
-	 *
-	 * @param $message string med meddelandets test
-	 *
-	 * @return void
-	 */
-	public function success($message) {
-		$success = array('type' => 'success', 'content' => $message);
-		$_SESSION['msg'][] = $success;
-	}
-		
-	
-	/**
-	 * Lägg till ett error meddelande
-	 *
-	 * @param $message string med meddelandets test
-	 *
-	 * @return void
-	 */
-	public function error($message) {
-		$error = array('type' => 'error', 'content' => $message);
-		$_SESSION['msg'][] = $error;	}
-		
-	
-	/**
-	 * Lägg till ett informations meddelande
-	 *
-	 * @param $message string med meddelandets test
-	 *
-	 * @return void
-	 */
-	public function info($message) {
-		$info = array('type' => 'info', 'content' => $message);
-		$_SESSION['msg'][] = $info;
-	}
+					/**
+					 * Lägg till ett error meddelande
+					 *
+					 * @param $message string med meddelandets test
+					 *
+					 * @return void
+					 */
+				public function error($content) {
+					$message = array('content' => $content, 'type' => 'error');
+					$_SESSION['msg'][] = $message;
+				}
 
-	
-	/**
-	 * Prints the messages in the session flasher
-	 */
-	public function outputMsgs() {
-		$messages = $_SESSION['msg'];
-		$output = null;
+				/**
+				 * Lägg till ett informations meddelande
+				 *
+				 * @param $message string med meddelandets test
+				 *
+				 * @return void
+				 */
+				public function info($content) {
+					$message = array('content' => $content, 'type' => 'info');
+					$_SESSION['msg'][] = $message;
+				}
 
-		if(isset($messages)) {
-			foreach($messages as $key => $message) {
-				$output .= '<div class="' . $message['type'] . '"><p>' . $message['content'] . '</p></div>';
-			}
-		}
 
-			return $output;
-		}
+				/**
+	 			 * Prints the messages in the session flasher
+	 			 */
+				public function outputMsgs(){
+						$messages = $_SESSION['msg'];
+						$output = null;
+						if($messages) {
+								foreach ($messages as $key => $message) {
+										$output .= "<div class='" . $message['type'] . "'><p>" . $message['content'] . "</p></div>";
+								}
+						}
+						return $output;
 
-	/**
-	 * Clear messages in the session messenger
-	 */
-	public function clearMsg() {
-		$_SESSION['msg'] = null;
-	}
+				}
+
+				/**
+	 			 * Clear messages in the session messenger
+	       */
+				public function clearMsg() {
+					$_SESSION['msg'] = null;
+				} 
 }
