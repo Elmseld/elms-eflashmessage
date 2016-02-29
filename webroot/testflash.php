@@ -5,7 +5,7 @@
  */
 
 // Get environment & autoloader.
-require __DIR__.'/config_with_app.php'; 
+require __DIR__ . '/config_with_app.php'; 
 
 
 // Inject the comment service into the app
